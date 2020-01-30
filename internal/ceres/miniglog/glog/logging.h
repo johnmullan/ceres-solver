@@ -301,6 +301,11 @@ class CERES_EXPORT LoggerVoidify {
 // LG is a convenient shortcut for LOG(INFO). Its use is in new
 // google3 code is discouraged and the following shortcut exists for
 // backward compatibility with existing code.
+
+#ifndef MAX_LOG_LEVEL
+#define MAX_LOG_LEVEL 0
+#endif
+
 #ifdef MAX_LOG_LEVEL
 #  define LOG(n)  LOG_IF(n, n <= MAX_LOG_LEVEL)
 #  define VLOG(n) LOG_IF(n, n <= MAX_LOG_LEVEL)

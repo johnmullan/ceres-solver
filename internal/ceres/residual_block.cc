@@ -111,6 +111,7 @@ bool ResidualBlock::Evaluate(const bool apply_loss_function,
     return false;
   }
 
+    /*
   if (!IsEvaluationValid(*this,
                          parameters.data(),
                          cost,
@@ -130,7 +131,7 @@ bool ResidualBlock::Evaluate(const bool apply_loss_function,
     LOG(WARNING) << message;
     return false;
   }
-
+*/
   double squared_norm = VectorRef(residuals, num_residuals).squaredNorm();
 
   // Update the jacobians with the local parameterizations.

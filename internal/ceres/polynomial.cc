@@ -99,7 +99,7 @@ void BalanceCompanionMatrix(Matrix* companion_matrix_ptr) {
 
   companion_matrix_offdiagonal.diagonal() = companion_matrix.diagonal();
   companion_matrix = companion_matrix_offdiagonal;
-  VLOG(3) << "Balanced companion matrix is\n" << companion_matrix;
+//  VLOG(3) << "Balanced companion matrix is\n" << companion_matrix;
 }
 
 void BuildCompanionMatrix(const Vector& polynomial,
@@ -193,9 +193,9 @@ bool FindPolynomialRoots(const Vector& polynomial_in,
   Vector polynomial = RemoveLeadingZeros(polynomial_in);
   const int degree = polynomial.size() - 1;
 
-  VLOG(3) << "Input polynomial: " << polynomial_in.transpose();
+//  VLOG(3) << "Input polynomial: " << polynomial_in.transpose();
   if (polynomial.size() != polynomial_in.size()) {
-    VLOG(3) << "Trimmed polynomial: " << polynomial.transpose();
+  //  VLOG(3) << "Trimmed polynomial: " << polynomial.transpose();
   }
 
   // Is the polynomial constant?
