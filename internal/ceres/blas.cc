@@ -33,16 +33,16 @@
 #include "glog/logging.h"
 
 #ifndef CERES_NO_LAPACK
-extern "C" void dsyrk_(char* uplo,
-                       char* trans,
-                       int* n,
-                       int* k,
-                       double* alpha,
-                       double* a,
-                       int* lda,
-                       double* beta,
-                       double* c,
-                       int* ldc);
+extern "C" void itsme_dsyrk(char* uplo,
+                            char* trans,
+                            int* n,
+                            int* k,
+                            double* alpha,
+                            double* a,
+                            int* lda,
+                            double* beta,
+                            double* c,
+                            int* ldc);
 #endif
 
 namespace ceres {
@@ -64,16 +64,16 @@ void BLAS::SymmetricRankKUpdate(int num_rows,
   int k = transpose ? num_rows : num_cols;
   int lda = k;
   int ldc = n;
-  dsyrk_(&uplo,
-         &trans,
-         &n,
-         &k,
-         &alpha,
-         const_cast<double*>(a),
-         &lda,
-         &beta,
-         c,
-         &ldc);
+  itsme_dsyrk(&uplo,
+              &trans,
+              &n,
+              &k,
+              &alpha,
+              const_cast<double*>(a),
+              &lda,
+              &beta,
+              c,
+              &ldc);
 #endif
 }
 
